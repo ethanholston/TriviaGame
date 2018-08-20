@@ -1,5 +1,5 @@
 html{
-    background-image: url("../images/footballField.jpg");
+    /* background-image: url("../images/footballField.jpg"); */
 }
 
 body{
@@ -31,4 +31,21 @@ body{
     position: relative;
     object-fit: contain;
     display : inline-block;
+}
+
+.answer:hover{
+    background-color: gray;
+
+}
+
+.answer{
+    padding: 10px;
+    /* position: relative; */
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.red{
+    color: red;
 }
