@@ -1,5 +1,6 @@
 html{
-    /* background-image: url("../images/footballField.jpg"); */
+    background-color: #003069;
+    color: #003069;
 }
 
 body{
@@ -34,16 +35,65 @@ body{
 }
 
 .answer:hover{
-    background-color: gray;
-
+    background-color: #003069;
+    color: white;
 }
 
 .answer{
     padding: 10px;
-    /* position: relative; */
-    width: 150px;
+    width: 200px;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+#restart:hover{
+    background-color: #003069;
+    color: white;
+    width: 20%;
+}
+
+#restart{
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+
+.display-4{
+    color: #003069;
+    font-size: 72px;   
+    top: 20px;
+    text-align: center;
+    position: absolute; 
+}
+
+#logo{
+    width: 100px;
+    margin-right: 15px;
+    top: 10%;
+    position: relative;
+}
+
+#banner{
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 20%; 
+    position: relative;
+}
+
+#timer{
+    margin-top: -30px;
+    margin-bottom: 30px;
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    border: 3px solid #003069;
+}
+
+#question{
+    margin-bottom: 15px;
 }
 
 .red{

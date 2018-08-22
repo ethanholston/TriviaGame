@@ -25,7 +25,7 @@ var questions = [
     a: "Matt Schaub",
     b: "Matt Cassel",
     c: "Matt Moore",
-    d: "Matt Moore",
+    d: "Matt Flynn",
     ans: "Matt Cassel"},
     {q: "How many Heisman Trophy winners have gone on to be MVP of the Super Bowl?",
     a: "2",
@@ -82,7 +82,7 @@ var noAns;
 //Functions
 
 function setHtml(){
-    $("#timer").html("<h2>" + number + " seconds left</h2>");
+    $("#timer").html("<h2>" + number + " seconds left</h2>").removeClass("red");
     $("#question").html("<h2>" + question + "<h2>");
     $("#answerA").html(answerA + "<br>").addClass("answer");
     $("#answerB").html(answerB + "<br>").addClass("answer");
@@ -137,7 +137,6 @@ function showAns(){
 function nextQ(){
     questionNum++;
     if(questionNum < questions.length){
-        $("#timer").removeClass("red");
         questionSetup();
     }
     else{
@@ -154,7 +153,7 @@ function newGame(){
 }
 
 function gameOver(){
-    $("#question").html("All done! Here's how you did!<br><button id='restart'>Restart</button><br><br><h3 id='right'></h3><h3 id='wrong'></h3><h3 id='no-answer'></h3>");
+    $("#question").html("<h2>All done! Here's how you did!</h2><br><h3 id='right'></h3><h3 id='wrong'></h3><h3 id='no-answer'></h3><h2 id='restart'>Start over?</h2>");
     $("#right").text("Correct answers: " + correct);
     $("#wrong").text("Incorrect answers: " + incorrect);
     $("#no-answer").text("Not answered : " + noAns);
@@ -170,10 +169,9 @@ function questionSetup(){
     answerD = questions[questionNum].d;
     selected = "";
     setHtml();
-//Gameplay
-
-
 }
+
+//Gameplay
 
 $("#answerA").on("click", function(){
     selected = questions[questionNum].a;
