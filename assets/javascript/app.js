@@ -84,10 +84,10 @@ var noAns;
 function setHtml(){
     $("#timer").html("<h2>" + number + " seconds left</h2>").removeClass("red");
     $("#question").html("<h2>" + question + "<h2>");
-    $("#answerA").html(answerA + "<br>").addClass("answer");
-    $("#answerB").html(answerB + "<br>").addClass("answer");
-    $("#answerC").html(answerC + "<br>").addClass("answer");
-    $("#answerD").html(answerD + "<br>").addClass("answer");
+    $("#answerA").html("<button type='button' class='btn answer'>" + answerA + "</button>");
+    $("#answerB").html("<button type='button' class='btn answer'>" + answerB + "</button><br>");
+    $("#answerC").html("<button type='button' class='btn answer'>" + answerC + "</button>");
+    $("#answerD").html("<button type='button' class='btn answer'>" + answerD + "</button>");
 }
 
 function timer() {
@@ -100,6 +100,7 @@ function timer() {
 function decrement() {
   number--;
   $("#timer").html("<h2>" + number + " seconds left</h2>");
+  $("#timer").addClass("border");
   if (number === 0) {
     stop();
     showAns();
@@ -145,6 +146,7 @@ function nextQ(){
 }
 
 function newGame(){
+    $("#start").detach();
     questionNum = 0;
     correct = 0;
     incorrect = 0;
@@ -161,7 +163,6 @@ function gameOver(){
 
 function questionSetup(){
     timer();
-    setHtml();
     question = questions[questionNum].q;
     answerA = questions[questionNum].a;
     answerB = questions[questionNum].b;
@@ -197,4 +198,6 @@ $(document).on("click", "#restart", function(){
     newGame();
 })
 
-newGame();
+$("#start").on("click", function(){
+    newGame();
+});

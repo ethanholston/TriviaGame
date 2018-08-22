@@ -81,6 +81,7 @@ body{
     margin-right: 40%;
     width: 20%; 
     position: relative;
+    margin-top: 3%;
 }
 
 #timer{
@@ -89,7 +90,11 @@ body{
     width: 20%;
     margin-left: 40%;
     margin-right: 40%;
-    border: 3px solid #003069;
+   
+}
+
+.border{
+    border: 3px solid #003069;    
 }
 
 #question{
@@ -98,4 +103,12 @@ body{
 
 .red{
     color: red;
+}
+
+.btn{
+    margin: 10px;
+}
+
+#start{
+    margin-top: 50px;
 }
