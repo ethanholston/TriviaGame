@@ -42,9 +42,9 @@ var questions = [
     {q: "Which of these teams was NOT an original NFL team that moved over to the AFC?",
     a: "Cleveland Browns",
     b: "Indianapolis Colts",
-    c: "Oakland (Las Vegas) Raiders",
+    c: "Oakland Raiders",
     d: "Pittsburgh Steelers",
-    ans: "Oakland (Las Vegas) Raiders"},
+    ans: "Oakland Raiders"},
     {q: "Who is the only player enshrined in Canton AND in the CFL Hall of Fame?",
     a: "Fred Biletnikoff",
     b: "Warren Moon",
@@ -155,7 +155,7 @@ function newGame(){
 }
 
 function gameOver(){
-    $("#question").html("<h2>All done! Here's how you did!</h2><br><h3 id='right'></h3><h3 id='wrong'></h3><h3 id='no-answer'></h3><h2 id='restart'>Start over?</h2>");
+    $("#question").html("<h2>All done! Here's how you did!</h2><br><h3 id='right'></h3><h3 id='wrong'></h3><h3 id='no-answer'></h3><button type='button' id='restart' class='btn'>Start Over</button>");
     $("#right").text("Correct answers: " + correct);
     $("#wrong").text("Incorrect answers: " + incorrect);
     $("#no-answer").text("Not answered : " + noAns);
