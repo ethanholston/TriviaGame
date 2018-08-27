@@ -82,25 +82,26 @@ var noAns;
 //Functions
 
 function setHtml(){
-    $("#timer").html("<h2>" + number + " seconds left</h2>").removeClass("red");
+    $("#timer").html("<h2>" + number + " seconds left</h2>").removeClass("red").addClass("border");
     $("#question").html("<h2>" + question + "<h2>");
-    $("#answerA").html("<button type='button' class='btn answer'>" + answerA + "</button>");
-    $("#answerB").html("<button type='button' class='btn answer'>" + answerB + "</button><br>");
-    $("#answerC").html("<button type='button' class='btn answer'>" + answerC + "</button>");
-    $("#answerD").html("<button type='button' class='btn answer'>" + answerD + "</button>");
+    $("#answerA").html($("<button>").addClass("btn answer").html(answerA));
+    $("#answerB").html($("<button>").addClass("btn answer").text(answerB)).append("<br>");
+    $("#answerC").html($("<button>").addClass("btn answer").text(answerC));
+    $("#answerD").html($("<button>").addClass("btn answer").text(answerD));
+    
 }
 
 function timer() {
   if (!intervalId) {
     intervalId = setInterval(decrement, 1000);
   }
+  $("#timer").addClass("border");
   number=30;
 }
 
 function decrement() {
   number--;
-  $("#timer").html("<h2>" + number + " seconds left</h2>");
-  $("#timer").addClass("border");
+  $("#timer").html($("<h2>").text(number + " seconds left"));
   if (number === 0) {
     stop();
     showAns();
@@ -121,11 +122,13 @@ function showAns(){
     $("#answerC").empty().removeClass("answer");
     $("#answerD").empty().removeClass("answer");
     if(selected === questions[questionNum].ans){
-        $("#question").html("<h2>Correct!</h2>");
+        // $("#question").html("<h2>Correct!</h2>");
+
         correct++;
     }
     else if(selected === ""){
-        $("#question").html("<h2>Out of time!</h2><br><h3>The correct answer was " + questions[questionNum].ans + "</h3>");
+        $("#question").html($("<h2>").html("Out of time!<br><br>").
+        append($("<h2>").text("The correct answer was " + questions[questionNum].ans)));
         noAns++;
     }
     else{
